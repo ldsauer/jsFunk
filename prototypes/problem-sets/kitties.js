@@ -1,17 +1,34 @@
 const { kitties } = require('../datasets/kitties');
 const { puppers } = require('../datasets/puppers');
 
-// To run the code you've written in this file, use node prototypes/problem-sets/kitties.js
+// To run the code you've written in this file, use 
+// node prototypes/problem-sets/kitties.js
 
-console.log('Running kitties.js')
+// console.log('Running kitties.js')
 
 /* Kitty Prompts*/
 
+function findOrangeNames(cats) {
+  let oranges = cats.filter((cat) => {
+    return cat.color === "orange";
+    // this first filters out all the cats that are orange and puts them in a new 
+    // array called oranges. 
+  })
+  let orangeNames = oranges.map((cat) => {
+    return cat.name
+    // This then goes through the filtered array (oranges) and returns cat by it's name
+  })
+  return orangeNames
+}
+
+// console.log(findOrangeNames(kitties))
+// console.log(findOrangeNames(puppers))
 /*
 Level 1
 
 Code: 
   Write a function called "findOrangeNames" that returns an array of just the names of kitties who are orange 
+
 
 Invoke: 
   To print the value your function returns and confirm it is correct, invoke your function within a console.log().
@@ -23,6 +40,15 @@ Annotate:
   After you find a solution, write out the steps of that solution.  Break them down as much as possible. 
 */
 
+
+function sortByAge(kitties) {
+  return kitties.sort((a,b) => {
+    return b.age - a.age;
+  });
+}
+
+// console.log(sortByAge(kitties))
+// console.log(sortByAge(puppers))
 
 /*
 Level 2
@@ -56,7 +82,15 @@ Annotation:
   After you find a solution, write out the steps of that solution.  Break them down as much as possible. 
 */
 
+function growUp(kitties) {
+  kitties.forEach((kitty) => {
+    kitty.age += 2;
+  });
+  return kitties;
+}
 
+// console.log(growUp(kitties))
+// console.log(growUp(puppers))
 /*
 Level 3
 
@@ -88,7 +122,7 @@ Annotation:
 /*
 Level 4
 
-Currently, your functions are probably using the imported `kitties` global  variable from line 1.
+Currently, your functions are probably using the imported `kitties` global variable from line 1.
 
 Code:
   Refactor the three functions above using arguments and parameters so that they can perform the same utility for the kitties or puppers datasets, depending on what arguments you send through.
@@ -155,8 +189,8 @@ Annotation:
 
 
 
-// module.exports = {
-//   findOrangeNames,
-//   sortByAge,
-//   growUp
-// };
+module.exports = {
+  findOrangeNames,
+  sortByAge,
+  growUp
+};

@@ -2,10 +2,24 @@ const { clubs } = require('../datasets/clubs');
 
 // To run the code you've written in this file, use node prototypes/problem-sets/clubs.js
 
-console.log('Running clubs.js')
+// console.log('Running clubs.js')
 
 /* Clubs Prompts*/
 
+function findClubMembers() {
+  const newObjects = {};
+  clubs.forEach((club) => {
+    club.members.forEach(member => {
+      if (!newObjects[member]) {
+        newObjects[member] = [];
+      }
+      newObjects[member].push(club.club);
+    });
+  });
+  return newObjects;
+}
+
+console.log(findClubMembers(clubs))
 /*
 Level 1
 
@@ -26,6 +40,13 @@ e.g.
 
 Annotate:
   After you find a solution, write out the steps of that solution.  Break them down as much as possible. 
+  1. create an empty object ( const newObjects = {};) to push in the new structure
+  2. iterate over each club  ( clubs.forEach((club) => ) to see the data each club holds
+  3. use another forEach to iterate over the members array (club.members.forEach(member =>)
+  4. check to see if there is already a key for the member name in our newly created obj (newObjects)
+  5. if there is not a already a key with the member name, create an empty array as members value. (newObjects[member] = [])
+  6. if there already is a key with the member name, push the club into that array value (newObjects[member].push(club.club))
+  7. always return your new onject
 */
 
 
@@ -46,6 +67,6 @@ Annotation:
 
 
 
-// module.exports = {
-//   findClubMembers
-// };
+module.exports = {
+  findClubMembers
+};

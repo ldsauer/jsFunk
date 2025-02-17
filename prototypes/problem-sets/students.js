@@ -2,7 +2,7 @@ const { students } = require('../datasets/students');
 
 // To run the code you've written in this file, use node prototypes/problem-sets/students.js
 
-console.log('Running students.js')
+// console.log('Running students.js')
 
 /* Students Prompts*/
 
